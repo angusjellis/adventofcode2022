@@ -36,4 +36,10 @@ for elf in elves:
 print(total_calories)
 
 total_calories.sort(reverse=True)
-print(total_calories[0])
+
+top_elf_calories = total_calories[0]
+
+top_three_elf_calories = top_elf_calories + total_calories[1] + total_calories[2]
+
+print(top_three_elf_calories)
+
