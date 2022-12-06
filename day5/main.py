@@ -13,8 +13,8 @@ def create_instruction(instruction: str) -> tuple:
 
 
 class CrateMover:
-    def __init__(self, stacks: list):
-        stacks.reverse()
+    def __init__(self, stacks_list: list):
+        stacks = stacks_list
         initial_stacks_object = {}
         for s in stacks:
             real_index = -1
@@ -63,15 +63,16 @@ with open("./day5/input.txt", "r") as input_file:
     stacks, instructions = input_file.read().split("\n\n")
 
     stack_list = stacks.splitlines()
+    stack_list.reverse()
 
-    # crate_mover_9000 = CrateMover9000(stack_list)
+    crate_mover_9000 = CrateMover9000(stack_list)
 
     crate_mover_9001 = CrateMover9001(stack_list)
 
     for i in instructions.splitlines():
         num_moves, from_stack, to_stack = create_instruction(i)
-        # crate_mover_9000.move(num_moves, from_stack, to_stack)
+        crate_mover_9000.move(num_moves, from_stack, to_stack)
         crate_mover_9001.move(num_moves, from_stack, to_stack)
 
-    # print(crate_mover_9000.get_top_objects())
+    print(crate_mover_9000.get_top_objects())
     print(crate_mover_9001.get_top_objects())
