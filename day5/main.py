@@ -1,6 +1,3 @@
-from collections import deque
-
-
 def create_instruction(instruction: str) -> tuple:
     i = instruction[5:]
     first_space = i.index(" ")
